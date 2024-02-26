@@ -13,7 +13,7 @@ Category.init(
       autoIncrement: true,
     },
 
-    bannerstands: {
+    category_name: {
       type: DataTypes.STRING,
       allowNull: false,
     }
