@@ -15,7 +15,7 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    pacific800: {
+    product_name: {
       type: DataTypes.STRING,
       allowNull:false,
     },
