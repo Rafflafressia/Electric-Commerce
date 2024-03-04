@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
     });
 
-    res.status(200).json(categoryData);
+    res.status(200).json({categoryData});
 
   } catch (err) {
     
@@ -66,14 +66,10 @@ router.put('/:id', async (req, res) => {
   try {
 
     // update a category by its `id` value
-    const categoryData = await Category.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
-
-      individualHooks: true
-
-    });
+    const categoryData = await Category.update(req.body,
+      {
+      where: {id: req.params.id},
+      });
 
     if (!categoryData[0]) {
       res.status(404).json({message: 'No categories with this id'});
@@ -97,9 +93,10 @@ router.delete('/:id', async (req, res) => {
       return res.status(404).json({message: 'Category not found'});
     }
 
-    await categoryData.destory()
+    await categoryData.destroy()
 
     res.status(200).json({message: 'Category deleted successfully'});
+    
   } catch (err) {
     console.error('Error deleting category: ', err);
     res.status(500).json({ error: 'Internal server error'});

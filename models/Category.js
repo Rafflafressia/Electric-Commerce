@@ -8,12 +8,12 @@ Category.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allNull: false,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
 
-    bannerstands: {
+    category_name: {
       type: DataTypes.STRING,
       allowNull: false,
     }
